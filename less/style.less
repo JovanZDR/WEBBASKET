@@ -1,0 +1,41 @@
+/* bg image src: https://interfacelift.com/wallpaper/details/3818/posing_hummingbird.html */
+.headerBanner {
+  height: 200px;
+  background-image: url("../imgs/hummer_lg.jpeg");
+  background-size: cover;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+}
+
+//submenu dropdown positioning (toplevel dropdowns already look great!)
+.dropdown-menu > .dropdown > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+}
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+
+//styling of non-admin page content
+.pageContent em, .pageContent strong {
+  display: block;
+  margin: 10px 0;
+}
+
+
+//media queries to replace banner img with smaller versions if possible
+@media all and (max-width: 1190px) and (min-width: 980px) {
+  .headerBanner {
+    background-image: url("../imgs/hummer_md.jpeg");
+  }
+}
+
+@media all and (max-width: 979px) {
+  .headerBanner {
+    background-image: url("../imgs/hummer_sm.jpeg");
+  }
+}
