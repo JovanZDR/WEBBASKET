@@ -56,22 +56,54 @@ $(function() {
 
 });
   
-  function getMenuLinks(){
-    $.ajax({
-        url:"php/get_menu_content.php",
-        dataType:"json",
-        type:"post",
-        data:{
-          
-        },
-         success: function(data) {
-          console.log("data",data);
-        },
-        error: function(data) {
-          console.log("getManuLinks error: ", data);
-        }
+function getMenuLinks(){
+  $.ajax({
+    url:"php/get_menu_content.php",
+    dataType:"json",
+    type:"post",
+    data:{
+      
+    },
+    success: function(data) {
+      console.log("data",data);
+      createFormSelect(data);
+    },
+    error: function(data) {
+      console.log("getManuLinks error: ", data);
+    }
 
-      });
-    
+  });
+}
 
+//the function that acutally creates the HTML for 
+//the admin form select list and append it to the form
+function createFormSelect(menuLinksData){
+  var menuTree = buildMenuTree(menuLinksData);
+
+
+}
+
+function buildMenuTree(menuLinksData) {
+  var menuTree = [];
+  var hashMap= {};
+  for (var i = 0; i < menuLinksData.length; i++) {
+    menuLinksData[i].children = [];
+    hashMap["--"+menuLinksData[i].mlid] = menuLinksData[i]; 
+    //add to top level
+    if(!menuLinksData[i].plid) {
+      menuTree.push(menuLinksData[i]);
+    }
   }
+  console.log("menuTree", menuTree);
+  console.log("hashMap", hashMap);
+  for (var i in hashMap) {
+    var singleLink = hashMap[i];
+    //add to sublevel
+    if(singleLink.plid) {
+      hashMap["--"+ singleLink.plid].children.push(singleLink);
+    }
+  }
+
+
+  return menuTree;
+}

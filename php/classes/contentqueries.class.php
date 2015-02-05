@@ -55,8 +55,9 @@ Class ContentQueries extends PDOhelper {
     $new_pid = $this->query($sql2);
    
     $new_pid = $new_pid[0]["pid"];
-
-		$sql1 = "INSERT INTO menu_links (title, weight) VALUES (:menu_title,:menu_level)";
+    $menulink[":menu_path"] = $new_pid;
+    
+		$sql1 = "INSERT INTO menu_links (title, weight, path) VALUES (:menu_title,:menu_level, :menu_path)";
 
     return $this->query($sql1, $menulink);
     
