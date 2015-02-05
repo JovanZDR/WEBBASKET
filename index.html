@@ -62,7 +62,7 @@
           <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Page title</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="page_title" placeholder="Enter page title">
+              <input type="text" class="form-control" required id="page_title" placeholder="Enter page title">
             </div>
           </div>
           <div class="form-group">
@@ -71,6 +71,27 @@
               <textarea class="form-control" id="page_text" rows="10"></textarea>
             </div>
           </div>
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label" >Menu title</label>
+            <div class="col-sm-10">
+              
+              <input type="text" class="form-control" required  id="menu_title" placeholder="Enter manu link title...">
+               <span class="input-group-addon" >Choose menu level</span>
+                <input type="number" required class="form-control" id="menuLevel" aria-describedby="menuLevel">
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="col-sm-2 control-label" for="page_url">Page Url</label>
+              <div class="col-sm-10">
+                <div class="input-group pageUrlGroup">
+                  <span class="input-group-addon">
+                    <input type="checkbox">
+                  </span>
+                  <input type="text" id="page_url" class="form-control" placeholder="Enter page url..." disabled>
+                </div>
+              </div>
+            </div>
+
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <div class="checkbox">
@@ -86,6 +107,8 @@
             </div>
           </div>
         </form>
+        <footer>
+        </footer>
       
         
         
@@ -94,6 +117,25 @@
       </section>
     </main>
     <footer>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Contact</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputEmail3" placeholder="Enter contact info...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Enter address info...">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+      </form>
     
     </footer>
   </body>
