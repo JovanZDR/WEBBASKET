@@ -6,18 +6,24 @@ $(function() {
   		var pageText = $(this).find("#page_text").val();
       var menuTitle = $(this).find("#menu_title").val();
       var menuLevel = $(this).find("#menuLevel").val();
+      //var pageUrl = $(this).find("#page_url").val();
 
   	  var page = {
   			":pageTitle":pageTitle,
   			":pageText":pageText,
-        ":menuTitle":menuTitle,
-        ":menuLevel":menuLevel
+      //  ":pageUrl":pageUrl
       };
 
   		console.log("page", page);
-      //if ($('#admin_form input[type="checkbox"]').is(":checked")) {
+      if ($('#admin_form form .addToMenu').is(":checked")) {
+        page["menudata"] = {
+          ":menu_title" : menuTitle,
+          ":menu_level":menuLevel,
+         // ":menu_path": pageUrl
+        }
+      }
   		sendTitleAndText(page);
-      getMenuLinks();
+      
   		//}
       this.reset();
   		return false
@@ -35,10 +41,11 @@ $(function() {
   				"page":page
   			},
   			 success: function(data) {
+          getMenuLinks();
       		console.log("data",data);
 		    },
 		    error: function(data) {
-		      console.log("insertNewPage error: ", data);
+		      console.log("sendTitleAndText error: ", data);
 		    }
 
   		});
