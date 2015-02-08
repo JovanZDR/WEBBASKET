@@ -1,8 +1,9 @@
 //run when DOM ready
 $(function() {
+  getMenuLinks();
  
-       
-       
+    
+     
   
  	$("#admin_form form").submit(function(){
   		var pageTitle = $(this).find("#page_title").val();
@@ -46,7 +47,7 @@ $(function() {
     			"page":page
     		},
     		success: function(data) {
-          getMenuLinks();
+       
           console.log("data",data);
   		  },
     		error: function(data) {
@@ -82,7 +83,8 @@ $(function() {
   
  
         
-        
+    
+          
   
     
   function createFormSelect(menuLinksData){
@@ -90,6 +92,7 @@ $(function() {
 
     var select_menu_html = $('<select class="form-control"/>');
     var menuOption = $( '<option value="">Top</option>');
+    
     menuOption.data("menuItemName",{mlid:"null"});
     select_menu_html.append(menuOption);
     select_menu_html = createSelectOption(select_menu_html,menuTree,0);
@@ -104,6 +107,7 @@ $(function() {
       for(var i=0;i<level;i++){
         levelIndicator +="-";
       }
+
    
       var option=$('<option value="'+menuTreeItems[j].mlid+'">'+levelIndicator+" "+menuTreeItems[j].title+'</option>')
       option.data("menuItemName",menuTreeItems[j]);
@@ -114,6 +118,7 @@ $(function() {
         console.log("select_menu_html",select_menu_html);
       }
     }
+
   return select_menu_html;
   }
 
