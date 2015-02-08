@@ -1,6 +1,9 @@
 //run when DOM ready
 $(function() {
-
+ 
+       
+       
+  
  	$("#admin_form form").submit(function(){
   		var pageTitle = $(this).find("#page_title").val();
   		var pageText = $(this).find("#page_text").val();
@@ -15,7 +18,9 @@ $(function() {
       };
 
   		console.log("page", page);
+      
       if ($('#admin_form form .addToMenu').is(":checked")) {
+
         page["menudata"] = {
           ":menu_title" : menuTitle,
           ":menu_level":menuLevel,
@@ -74,7 +79,11 @@ $(function() {
 
     });
   }
-
+  
+ 
+        
+        
+  
     
   function createFormSelect(menuLinksData){
     var menuTree = buildMenuTree(menuLinksData);
