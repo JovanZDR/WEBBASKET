@@ -21,8 +21,10 @@ $(function() {
   		console.log("page", page);
       
       if ($('#admin_form form .addToMenu').is(":checked")) {
-
+        console.log("plid",$(this).find(".menuOption :selected").data("menuItemName"));
+        var selectedLink = $(this).find(".menuOption :selected").data("menuItemName");
         page["menudata"] = {
+          ":plid": selectedLink.mlid,
           ":menu_title" : menuTitle,
           ":menu_level":menuLevel,
          // ":menu_path": pageUrl
@@ -114,7 +116,7 @@ $(function() {
       select_menu_html.append(option);
   
       if (menuTreeItems[j].children.length>0){
-        select_menu_html.append(createSelectOption(select_menu_html, menuTreeItems[j].children, level+1));
+       createSelectOption(select_menu_html, menuTreeItems[j].children, level+1);
         console.log("select_menu_html",select_menu_html);
       }
     }

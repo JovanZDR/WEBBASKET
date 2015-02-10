@@ -42,7 +42,7 @@ Class ContentQueries extends PDOhelper {
 	}
 
 	public function getMenuLinks(){
-		$sql1 = "SELECT * FROM menu_links";
+		$sql1 = "SELECT * FROM menu_links ORDER BY weight";
     return $this->query($sql1);
     
 
@@ -57,7 +57,7 @@ Class ContentQueries extends PDOhelper {
     $new_pid = $new_pid[0]["pid"];
     $menulink[":menu_path"] = $new_pid;
     
-		$sql1 = "INSERT INTO menu_links (title, weight, path) VALUES (:menu_title,:menu_level, :menu_path)";
+		$sql1 = "INSERT INTO menu_links (title, weight, path, plid) VALUES (:menu_title,:menu_level, :menu_path,:plid)";
 
     return $this->query($sql1, $menulink);
     
