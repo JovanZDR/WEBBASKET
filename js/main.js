@@ -74,7 +74,9 @@ $(function() {
       },
       success: function(data) {
         console.log("data",data);
+        createHtmlForMenu(data);
         createFormSelect(data);
+        
       },
       error: function(data) {
         console.log("getManuLinks error: ", data);
@@ -122,6 +124,40 @@ $(function() {
     }
 
   return select_menu_html;
+
+  }
+  function createHtmlForMenu(data){
+    var menuTree = buildMenuTree(data);
+    menuHtml=$('<ul class"nav navbar-nav"/>');
+    menuHtml = createMenu(menuHtml, menuTree);
+
+    $("header .navbar-collapse").find(".navbar-nav").remove();
+    $("header .navbar-collapse").append(menuHtml);
+    
+  }
+
+  function createMenu(menuHtml, menuTree){
+    for (var i=0; i<menuTree.length;i++){
+      var menuLinkName;
+      var menuItems = menuTree[i];
+      var children = menuTree[i].children;
+      
+      if (children > 1){
+        menuLinkName = $('<li class="dropdown"><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
+        var dropDownMenu = $('<ul class="dropdown-menu"/>');
+         menuLinkName.prepend(dropDownMenu);
+         createMenu(children, dropDownMenu);
+      }
+      else {
+        menuLinkName =$('<li><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
+        
+
+       
+
+      }
+      menuHtml.append(menuLinkName);
+    }
+    return menuHtml;
   }
 
   function buildMenuTree(menuLinksData) {
