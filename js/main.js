@@ -1,6 +1,8 @@
 //run when DOM ready
 $(function() {
   getMenuLinks();
+  pushPopListeners();
+  
  
     
      
@@ -60,6 +62,27 @@ $(function() {
 
 
   }
+/*  function getPage(pid){
+    $.ajax({
+      url:"php/get_content.php",
+        dataType:"json",
+        data:{
+          "pid":pid
+        },
+        success: function(data) {
+       
+          console.log("getPage",data);
+        },
+        success:showPageContent 
+       
+          
+        ,
+        error: function(data) {
+          console.log("createPage error: ", data);
+        }
+    });
+  }
+  */
 
 
 
@@ -84,12 +107,9 @@ $(function() {
 
     });
   }
-  
- 
-        
-    
-          
-  
+});
+
+
     
   function createFormSelect(menuLinksData){
     var menuTree = buildMenuTree(menuLinksData);
@@ -97,7 +117,7 @@ $(function() {
     var select_menu_html = $('<select class="form-control"/>');
     var menuOption = $( '<option value="">Top</option>');
     
-    menuOption.data("menuItemName",{mlid:"null"});
+    menuOption.data("menuItemName",{mlid:null});
     select_menu_html.append(menuOption);
     select_menu_html = createSelectOption(select_menu_html,menuTree,0);
     $("#admin_form .menuOption").html(select_menu_html);
@@ -128,10 +148,10 @@ $(function() {
   }
   function createHtmlForMenu(data){
     var menuTree = buildMenuTree(data);
-    menuHtml=$('<ul class"nav navbar-nav"/>');
+    menuHtml=$('<ul class="nav navbar-nav"/>');
     menuHtml = createMenu(menuHtml, menuTree);
 
-    $("header .navbar-collapse").find(".navbar-nav").remove();
+    $("header .navbar-collapse").find("nav .navbar-nav").remove();
     $("header .navbar-collapse").append(menuHtml);
     
   }
@@ -142,14 +162,18 @@ $(function() {
       var menuItems = menuTree[i];
       var children = menuTree[i].children;
       
-      if (children > 1){
-        menuLinkName = $('<li class="dropdown"><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
-        var dropDownMenu = $('<ul class="dropdown-menu"/>');
-         menuLinkName.prepend(dropDownMenu);
-         createMenu(children, dropDownMenu);
+      if (children < 1){
+        
+        menuLinkName =$('<li><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
+        
+        
       }
       else {
-        menuLinkName =$('<li><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
+        menuLinkName = $('<li class="dropdown"><a href="'+menuItems.path+'">'+menuItems.title+'</a></li>');
+        var dropDownMenu = $('<ul class="dropdown-menu"/>');
+        menuLinkName.prepend(dropDownMenu);
+        createMenu( dropDownMenu,children);
+        
         
 
        
@@ -184,4 +208,3 @@ $(function() {
 
   return menuTree;
   }
-});

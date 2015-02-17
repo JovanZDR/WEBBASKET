@@ -49,7 +49,7 @@ Class ContentQueries extends PDOhelper {
 	}
 
 	public function saveNewMenuLink($menulink){
-
+		$menulink[":plid"] = $menulink[":plid"] ? $menulink[":plid"] : null;
 
 		$sql2 = "SELECT pid FROM pages ORDER BY created DESC LIMIT 1";
     $new_pid = $this->query($sql2);
@@ -62,6 +62,12 @@ Class ContentQueries extends PDOhelper {
     return $this->query($sql1, $menulink);
     
 
+	}
+	public function getPageContent($pid){
+		$sql2 = "SELECT * FROM pages WHERE pid = :pid";
+    $page_data = array(":pid" => $pid);
+    $page_data = $this->query($sql2, $page_data);
+    return $page_data;
 	}
 
 }
