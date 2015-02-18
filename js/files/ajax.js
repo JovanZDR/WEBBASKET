@@ -32,4 +32,26 @@
      pageHtmlData.append("<em>Created on: "+activepath[0]["created"]+", by: "+activepath[0]["author"]+"</em>");
 
     $("#page").html(pageHtmlData);
+    getFooter();
+  }
+
+  function getFooter(){
+    $.ajax({
+      // Create som new php document that return json for the footer
+      url: "php/getFooter.php",
+      dataType:"json",
+      success:function(footerData){
+        // build html from footerData
+        var html = $('<footer/>');
+        //html.append('<p>')
+
+
+        // remove old footer
+        $('footer').remove();
+        $('body').append(html);
+
+
+      }
+    });
+
   }
