@@ -8,31 +8,31 @@
 function showPage(pid) {
 	getMenuLinks(pid);
 	
-	if( !pid||pid == 174) {
+	if( !pid) {
 		
 		$("#admin_form").hide();
 		$("footer").hide();
-	}
 
-
-  
-
-
-	else if( pid == "admin_form") {
+	}else if( pid == "admin_form") {
 		
 		$("#admin_form").fadeIn(500);
 		$("footer").hide();
-	}
-	else if( pid == "footer") {
+
+	}else if( pid == "footer") {
 		
 		$("#admin_form").hide();
   	$("footer").fadeIn(500);
+
+
 	}
-	else if( pid == "user_side") {
+
+
+	else  {
 		$("footer").hide();
 		
 		getPage(pid);
 		 pid = "page";
+
 
 		
 	}

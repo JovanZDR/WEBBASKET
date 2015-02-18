@@ -7,3 +7,10 @@
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
+h1 {
+	font-family: 'Sigmar One', cursive;
+}
+h4 {
+	font-family: 'Open Sans Condensed', sans-serif;
+
+}

@@ -20,9 +20,16 @@
     });
   }
 
-  function showPageContent (data){
-    //console.log("pagesData", data);
-    $(".everything").html("here should be the page");
+  function showPageContent (activepath){
+    console.log( activepath);
+    
+    $("#page").html("");
+    var pageHtmlData = $('<article class="content"/>');
+    pageHtmlData.append("<h1>"+activepath[0]["title"]+"</h1>");
+    pageHtmlData.append("<h4>"+activepath[0]["body"]+"</h4>");
+    console.log("html",pageHtmlData);
+    $(".everything").html(pageHtmlData);
+     pageHtmlData.append("<em>Created on: "+activepath[0]["created"]+", by: "+activepath[0]["author"]+"</em>");
 
-
+    $("#page").html(pageHtmlData);
   }
