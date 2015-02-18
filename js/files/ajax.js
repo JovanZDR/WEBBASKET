@@ -22,5 +22,7 @@
 
   function showPageContent (data){
     //console.log("pagesData", data);
-    //$(".everything").html("");
+    $(".everything").html("here should be the page");
+
+
   }

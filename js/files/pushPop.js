@@ -6,13 +6,36 @@
 
 //function to show/hide sections
 function showPage(pid) {
-	getPage(pid);
-	// $(".everything").hide();
-
-	//if( pid == 163) {
-	//	$(".everything").show();
-	//}
+	getMenuLinks(pid);
 	
+	if( !pid||pid == 174) {
+		
+		$("#admin_form").hide();
+		$("footer").hide();
+	}
+
+
+  
+
+
+	else if( pid == "admin_form") {
+		
+		$("#admin_form").fadeIn(500);
+		$("footer").hide();
+	}
+	else if( pid == "footer") {
+		
+		$("#admin_form").hide();
+  	$("footer").fadeIn(500);
+	}
+	else if( pid == "user_side") {
+		$("footer").hide();
+		
+		getPage(pid);
+		 pid = "page";
+
+		
+	}
   
 }
 

@@ -64,7 +64,7 @@ Class ContentQueries extends PDOhelper {
 
 	}
 	public function getPageContent($pid){
-		$sql2 = "SELECT * FROM pages WHERE pid = :pid";
+		$sql2 = "SELECT pages.*, CONCAT(users.fname, ' ', users.lname) AS author FROM pages, users WHERE pid = :pid && users.uid = pages.user_id;";
     $page_data = array(":pid" => $pid);
     $page_data = $this->query($sql2, $page_data);
     return $page_data;

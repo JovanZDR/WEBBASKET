@@ -1,11 +1,7 @@
 //run when DOM ready
 $(function() {
-  getMenuLinks();
+
   pushPopListeners();
-  
- 
-    
-     
   
  	$("#admin_form form").submit(function(){
   		var pageTitle = $(this).find("#page_title").val();
@@ -37,57 +33,34 @@ $(function() {
   		//}
       this.reset();
   		return false
-  	
-  		
   });
-  	
+  
+});
+
+  
 
   function sendTitleAndText(page){
-  	$.ajax({
-        url:"php/save_content.php",
-      	dataType:"json",
-      	type:"post",
-      	data:{
-    			"page":page
-    		},
-    		success: function(data) {
-       
-          console.log("data",data);
-  		  },
-    		error: function(data) {
-    		  console.log("sendTitleAndText error: ", data);
-    		}
-
-  	});
-
-
-  }
-/*  function getPage(pid){
     $.ajax({
-      url:"php/get_content.php",
+        url:"php/save_content.php",
         dataType:"json",
+        type:"post",
         data:{
-          "pid":pid
+          "page":page
         },
         success: function(data) {
        
-          console.log("getPage",data);
+          console.log("data",data);
         },
-        success:showPageContent 
-       
-          
-        ,
         error: function(data) {
-          console.log("createPage error: ", data);
+          console.log("sendTitleAndText error: ", data);
         }
+
     });
+
+
   }
-  */
 
-
-
-  
-  function getMenuLinks(){
+  function getMenuLinks(activePath){
     $.ajax({
       url:"php/get_menu_content.php",
       dataType:"json",
@@ -100,6 +73,8 @@ $(function() {
         createHtmlForMenu(data);
         createFormSelect(data);
         
+        $(".active").removeClass("active");
+        $('a[href="'+activePath+'"]').parent("li").addClass("active");
       },
       error: function(data) {
         console.log("getManuLinks error: ", data);
@@ -107,7 +82,6 @@ $(function() {
 
     });
   }
-});
 
 
     
@@ -151,7 +125,7 @@ $(function() {
     menuHtml=$('<ul class="nav navbar-nav"/>');
     menuHtml = createMenu(menuHtml, menuTree);
 
-    $("header .navbar-collapse").find("nav .navbar-nav").remove();
+    $("header .navbar-collapse").find(".navbar-nav").remove();
     $("header .navbar-collapse").append(menuHtml);
     
   }
