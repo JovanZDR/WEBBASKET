@@ -33,24 +33,29 @@
 
     $("#page").html(pageHtmlData);
     getFooter();
+
   }
 
   function getFooter(){
     $.ajax({
       // Create som new php document that return json for the footer
-      url: "php/getFooter.php",
+      url: "php/get_content.php",
       dataType:"json",
+      data: {
+        footer: 1
+      },
       success:function(footerData){
-        // build html from footerData
-        var html = $('<footer/>');
-        //html.append('<p>')
-
-
+        console.log("footerData",footerData);
         // remove old footer
-        $('footer').remove();
-        $('body').append(html);
+        $('footer .footerInfo').remove();
+        // build html from footerData
+        var html = $('<address class="footerInfo"/>');
+        html.append("<p>Address:"+footerData[0]["address"]+'</p>');
+        html.append("<p>Contact:"+footerData[0]["contact"]+'</p>');
+        console.log("html",html);
 
-
+        
+        $('footer').append(html);
       }
     });
 

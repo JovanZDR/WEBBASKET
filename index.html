@@ -1,145 +1,116 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Basketball!</title>
-    <meta charset="utf-8">
-    <!-- include .js libs -->
-    <script src="js/libs/jquery-2.1.3.js"></script>
-    <script src="js/libs/bootstrap.js"></script>
-    <!-- include our .js -->
-    <script src="js/files/pushPop.js"></script>
-    <script src="js/files/ajax.js"></script>
-    <script src="js/files/helpers.js"></script>
-    <script src="js/files/menus.js"></script>
-    <script src="js/files/pages.js"></script>
-    <script src="js/files/boot.js"></script>
-    <script src="js/main.js"></script>´
-    <!-- include .css -->
-    <link href='http://fonts.googleapis.com/css?family=Sigmar+One|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-  </head>
-  <body >
-    <!-- making the header a container gives us the same padding as rest of content -->
-    <header class="container ">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-           
-          </div>
+<head>
+  <title>Basketball!</title>
+  <meta charset="utf-8">
+  <!-- include .js libs -->
+  <script src="js/libs/jquery-2.1.3.js"></script>
+  <script src="js/libs/bootstrap.js"></script>
+  <!-- include our .js -->
+  <script src="js/files/pushPop.js"></script>
+  <script src="js/files/ajax.js"></script>
+  <script src="js/files/helpers.js"></script>
+  <script src="js/files/menus.js"></script>
+  <script src="js/files/pages.js"></script>
+  <script src="js/files/boot.js"></script>
+  <script src="js/main.js"></script>´
+  <!-- include .css -->
+  <link href='http://fonts.googleapis.com/css?family=Sigmar+One|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <!-- making the header a container gives us the same padding as rest of content -->
+  <header class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              
-            </ul>
-            <form class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-           
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-      
-    </header>
-    
-    <main class=" everything container">
-      
-      <section class="panel panel-default main-nav administration ">
-        <div class="container-fluid panel-heading ">
+        </div>
 
-        
-          <ul class="nav nav-pills nav-stacked  form-horizontal col-xs-6 col-sm-6 col-md-3 col-lg-3">
-            <li ><a href="user_side">User side</a></li>
-            <li ><a href="admin_form">Form</a></li>
-            <li><a href="footer">Footer</a></li>
-            
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+
           </ul>
-       
-        </div>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+  </header>
+
+  <main class="everything container">
+
+    <section class="panel panel-default main-nav administration ">
+      <div class="container-fluid panel-heading ">
+
+
+        <ul class="nav nav-pills nav-stacked  form-horizontal col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <li ><a href="user_side">User side</a></li>
+          <li ><a href="admin_form">Form</a></li>
+          <li><a href="footer">Footer</a></li>
+
+        </ul>
+
+      </div>
       
-      </section>
-        
-      <section id="page" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-        </section>
-        
-        <section id="admin_form">
-          
-        <form class="  form-horizontal col-xs-12 col-sm-12 col-md-8 col-lg-8">
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Page title</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" required id="page_title" placeholder="Enter page title">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Page text</label>
-            <div class="col-sm-10">
-              <textarea class="form-control" id="page_text" rows="10"></textarea>
-            </div>
-          </div>
-
-          <div  class="form-group ">
-
-            <label for="inputEmail3" class="col-sm-2 control-label" >Menu title</label>
-            <div class="col-sm-10">
-              
-              <input type="text" class="form-control" required  id="menu_title" placeholder="Enter manu link title...">
-               <span class="input-group-addon" >Choose menu level</span>
-                <input type="number" required class="form-control" id="menuLevel" aria-describedby="menuLevel">
-            </div>
-            
-            <div class= "menuOption 
-          "></div>
-          </div>
-          
-            
-          <div  class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <div class="checkbox">
-                <label>
-                  <input class="addToMenu" type="checkbox"> Save to menu
-                </label>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-          </div>
-        </form>
-        
     </section>
-    </main>
-      
-        
-        
 
-        
-     
-    <footer class="container">
-      <form class="form-horizontal">
+    <section id="page" class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+    </section>
+
+    <section id="admin_form">
+
+      <form class="  form-horizontal col-xs-12 col-sm-12 col-md-8 col-lg-8">
         <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Contact</label>
+          <label for="inputEmail3" class="col-sm-2 control-label">Page title</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputContact" placeholder="Enter contact info...">
+            <input type="text" class="form-control" required id="page_title" placeholder="Enter page title">
           </div>
         </div>
         <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+          <label for="inputPassword3" class="col-sm-2 control-label">Page text</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputAddress" placeholder="Enter address info...">
+            <textarea class="form-control" id="page_text" rows="10"></textarea>
+          </div>
+        </div>
+
+        <div  class="form-group ">
+
+          <label for="inputEmail3" class="col-sm-2 control-label" >Menu title</label>
+          <div class="col-sm-10">
+
+            <input type="text" class="form-control" required  id="menu_title" placeholder="Enter manu link title...">
+            <span class="input-group-addon" >Choose menu level</span>
+            <input type="number" required class="form-control" id="menuLevel" aria-describedby="menuLevel">
+          </div>
+
+          <div class= "menuOption 
+          "></div>
+        </div>
+
+
+        <div  class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label>
+                <input class="addToMenu" type="checkbox"> Save to menu
+              </label>
+            </div>
           </div>
         </div>
         <div class="form-group">
@@ -148,9 +119,37 @@
           </div>
         </div>
       </form>
-    
-    </footer>
-   
 
-  </body>
+    </section>
+  </main>
+
+
+
+
+
+
+  <footer class="container">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Contact</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputContact" placeholder="Enter contact info...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputAddress" placeholder="Enter address info...">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+  </footer>
+
+
+</body>
 </html>

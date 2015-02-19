@@ -1,3 +1,26 @@
+html, body {
+  height: 100%;
+}
+main {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+main:after {
+  content: "";
+  display: block;
+}
+footer, main:after {
+  height: 142px; 
+}
+footer {
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #e7e7e7;
+
+}
+
+
 .dropdown-menu > .dropdown > .dropdown-menu {
   top: 0;
   left: 100%;
@@ -14,3 +37,4 @@ h4 {
 	font-family: 'Open Sans Condensed', sans-serif;
 
 }
+

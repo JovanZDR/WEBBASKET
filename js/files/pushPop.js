@@ -28,7 +28,7 @@ function showPage(pid) {
 
 
 	else  {
-		$("footer").hide();
+		$("footer form").hide();
 		
 		getPage(pid);
 		 pid = "page";

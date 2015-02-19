@@ -69,5 +69,9 @@ Class ContentQueries extends PDOhelper {
     $page_data = $this->query($sql2, $page_data);
     return $page_data;
 	}
+	public function getFooterContent(){
+		$sql = "SELECT * FROM footer";
+		return $this->query($sql) ;
+	}
 
 }
