@@ -29,6 +29,7 @@ $(function() {
         }
       }
   		sendTitleAndText(page);
+
       
   		//}
       this.reset();
@@ -117,7 +118,7 @@ $(function() {
       }
     }
 
-  return select_menu_html;
+    return select_menu_html;
 
   }
   function createHtmlForMenu(data){
@@ -181,5 +182,13 @@ $(function() {
 
 
   return menuTree;
+}
+function getImages(data){
+  
+       
+  var image_html = $('<select class="form-control"/>');
+  image_html.append('<option value="">Images</option>');
+   $('div.images').append(image_html);
+   console.log("found: ", $('div.images').length);
 }
    

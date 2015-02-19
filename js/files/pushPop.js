@@ -7,35 +7,35 @@
 //function to show/hide sections
 function showPage(pid) {
 	getMenuLinks(pid);
+  getFooter();
 	
+
+    $("#admin_form").hide();
+    $("#footer_form").hide();
+
 	if( !pid) {
-		
-		$("#admin_form").hide();
-		$("footer").hide();
 
 	}else if( pid == "admin_form") {
 		
 		$("#admin_form").fadeIn(500);
-		$("footer").hide();
+    getImages();
 
 	}else if( pid == "footer") {
-		
-		$("#admin_form").hide();
-  	$("footer").fadeIn(500);
+
+  	$("#footer_form").fadeIn(500);
 
 
 	}
 
 
 	else  {
-		$("footer form").hide();
 		
 		getPage(pid);
-		 pid = "page";
+   pid = "page";
 
 
-		
-	}
+
+  }
   
 }
 

@@ -67,6 +67,14 @@ Class ContentQueries extends PDOhelper {
 		$sql2 = "SELECT pages.*, CONCAT(users.fname, ' ', users.lname) AS author FROM pages, users WHERE pid = :pid && users.uid = pages.user_id;";
     $page_data = array(":pid" => $pid);
     $page_data = $this->query($sql2, $page_data);
+
+    if ($page_data[0]["img_id"] !== null) {
+    	$sql = "SELECT * FROM images WHERE iid = :iid;";
+    	$img_result = $this->query($sql, array(":iid" => $page_data[0]["img_id"]));
+    	$page_data[0]["image_data"] = $img_result[0];
+    	//$page_data[0]["image_data"] = $this->query($sql, array(":iid" => $page_data[0]["img_id"]))[0];
+    }
+
     return $page_data;
 	}
 	public function getFooterContent(){

@@ -25,14 +25,14 @@
     
     $("#page").html("");
     var pageHtmlData = $('<article class="content"/>');
+    pageHtmlData.append("<img class='img-responsive' src='images/"+activepath[0].image_data.path+"'>");
     pageHtmlData.append("<h1>"+activepath[0]["title"]+"</h1>");
-    pageHtmlData.append("<h4>"+activepath[0]["body"]+"</h4>");
+    pageHtmlData.append("<p>"+activepath[0]["body"]+"</p>");
     console.log("html",pageHtmlData);
     $(".everything").html(pageHtmlData);
      pageHtmlData.append("<em>Created on: "+activepath[0]["created"]+", by: "+activepath[0]["author"]+"</em>");
-
     $("#page").html(pageHtmlData);
-    getFooter();
+
 
   }
 
