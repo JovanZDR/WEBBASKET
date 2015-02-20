@@ -33,8 +33,11 @@ footer {
 h1 {
 	font-family: 'Sigmar One', cursive;
 }
-h4 {
+p {
 	font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
 
 }
-
+img {
+   max-height: 400px;
+}

@@ -22,7 +22,7 @@ Class ContentQueries extends PDOhelper {
     
 
 
-		$sql = "INSERT INTO pages (title,body,user_id) VALUES (:pageTitle,:pageText,:user_id)";
+		$sql = "INSERT INTO pages (title,body,user_id, img_id) VALUES (:pageTitle,:pageText,:user_id, :selectedImages)";
 		$this->query($sql, $page);
 
 		
@@ -44,6 +44,12 @@ Class ContentQueries extends PDOhelper {
 	public function getMenuLinks(){
 		$sql1 = "SELECT * FROM menu_links ORDER BY weight";
     return $this->query($sql1);
+    
+
+	}
+	public function getImages(){
+		$sql4 = "SELECT * FROM images";
+    return $this->query($sql4);
     
 
 	}

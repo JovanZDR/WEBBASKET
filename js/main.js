@@ -8,12 +8,13 @@ $(function() {
   		var pageText = $(this).find("#page_text").val();
       var menuTitle = $(this).find("#menu_title").val();
       var menuLevel = $(this).find("#menuLevel").val();
-      //var pageUrl = $(this).find("#page_url").val();
+      var selectedImages = $(this).find(".menuImages :selected").val();
+      console.log("hahahahah",selectedImages);
 
   	  var page = {
   			":pageTitle":pageTitle,
   			":pageText":pageText,
-      //  ":pageUrl":pageUrl
+        ":selectedImages":selectedImages,
       };
 
   		console.log("page", page);
@@ -21,6 +22,10 @@ $(function() {
       if ($('#admin_form form .addToMenu').is(":checked")) {
         console.log("plid",$(this).find(".menuOption :selected").data("menuItemName"));
         var selectedLink = $(this).find(".menuOption :selected").data("menuItemName");
+       // var selectedImage = $(this).find(".menuImages :selected");
+      
+       // ""console.log("selectedImage",selectedImage.val());
+
         page["menudata"] = {
           ":plid": selectedLink.mlid,
           ":menu_title" : menuTitle,
@@ -182,13 +187,40 @@ $(function() {
 
 
   return menuTree;
-}
-function getImages(data){
+ }
+ function getImages(){
   
        
   var image_html = $('<select class="form-control"/>');
-  image_html.append('<option value="">Images</option>');
-   $('div.images').append(image_html);
-   console.log("found: ", $('div.images').length);
+  image_html.append('<option value="">choose image</option>');
+  $('div.images').html(image_html);
+  console.log("found: ", $('div.images').length);
+  $.ajax({
+    url:"php/get_images.php",
+    dataType:"json",
+    type:"post",
+    data:{
+            
+      },
+    success: function(data) {
+    console.log("images",data);
+    for (var i=0; i<data.length;i++){
+
+      var option=$('<option value="'+data[i].iid+'">'+data[i].title+'</option>')
+          
+      image_html.append(option);
+      console.log("option",option);
+    }
+        
+        
+        
+    },
+    error: function(data) {
+    console.log("getImages error: ", data);
+    }
+
+  });
+
+
 }
    
