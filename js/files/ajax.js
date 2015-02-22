@@ -1,4 +1,4 @@
- function getPage(pid){
+  function getPage(pid){
     $.ajax({
       url:"php/get_content.php",
         dataType:"json",

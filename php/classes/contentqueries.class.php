@@ -16,8 +16,7 @@ Class ContentQueries extends PDOhelper {
 	    unset($page["menudata"]);
 		}
     
-    //$page_url = $page[":pageUrl"];
-    //unset($page[":pageUrl"]);
+    
 
     
 

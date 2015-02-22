@@ -22,21 +22,21 @@ $(function() {
       if ($('#admin_form form .addToMenu').is(":checked")) {
         console.log("plid",$(this).find(".menuOption :selected").data("menuItemName"));
         var selectedLink = $(this).find(".menuOption :selected").data("menuItemName");
-       // var selectedImage = $(this).find(".menuImages :selected");
       
-       // ""console.log("selectedImage",selectedImage.val());
+      
+       
 
         page["menudata"] = {
           ":plid": selectedLink.mlid,
           ":menu_title" : menuTitle,
           ":menu_level":menuLevel,
-         // ":menu_path": pageUrl
+         
         }
       }
   		sendTitleAndText(page);
 
       
-  		//}
+  		
       this.reset();
   		return false
   });
