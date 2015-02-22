@@ -22,10 +22,10 @@
 
   function showPageContent (activepath){
     console.log( activepath);
-    
+  
     $("#page").html("");
-    var pageHtmlData = $('<article class="content"/>');
-    pageHtmlData.append("<img class='img-responsive' src='images/"+activepath[0].image_data.path+"'>");
+    var pageHtmlData = $('<article class="content well well-lg"/>');
+    pageHtmlData.append("<img class='img-responsive img-thumbnail' src='images/"+activepath[0].image_data.path+"'>");
     pageHtmlData.append("<h1>"+activepath[0]["title"]+"</h1>");
     pageHtmlData.append("<p>"+activepath[0]["body"]+"</p>");
     console.log("html",pageHtmlData);
@@ -49,7 +49,7 @@
         // remove old footer
         $('footer .footerInfo').remove();
         // build html from footerData
-        var html = $('<address class="footerInfo"/>');
+        var html = $('<address class="footerInfo "/>');
         html.append("<p>Address:"+footerData[0]["address"]+'</p>');
         html.append("<p>Contact:"+footerData[0]["contact"]+'</p>');
         console.log("html",html);

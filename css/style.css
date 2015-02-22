@@ -32,6 +32,7 @@ footer {
 }
 h1 {
 	font-family: 'Sigmar One', cursive;
+  font-size: 20px;
 }
 p {
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -41,3 +42,10 @@ p {
 img {
    max-height: 400px;
 }
+address {
+  margin-left: 2vw;
+  margin-top: 10vh;
+
+
+}
+
